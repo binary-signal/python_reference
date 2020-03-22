@@ -65,9 +65,7 @@ def values_in_col(cursor, table_name, print_out=True):
     """
     cursor.execute('PRAGMA TABLE_INFO({})'.format(table_name))
     info = cursor.fetchall()
-    col_dict = dict()
-    for col in info:
-        col_dict[col[1]] = 0
+    col_dict = {col[1]: 0 for col in info}
     for col in col_dict:
         c.execute('SELECT ({0}) FROM {1} '
                   'WHERE {0} IS NOT NULL'.format(col, table_name))
