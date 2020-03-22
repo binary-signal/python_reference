@@ -16,11 +16,7 @@ def likelihood_poisson(x, lam):
     Poisson distribution
     
     """
-    if x // 1 != x:
-        likelihood = 0
-    else:
-        likelihood = math.e**(-lam) * lam**(x) / math.factorial(x)
-    return likelihood
+    return 0 if x // 1 != x else math.e**(-lam) * lam**x / math.factorial(x)
 
 
 if __name__ == "__main__":
